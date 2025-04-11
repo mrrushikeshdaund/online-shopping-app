@@ -18,7 +18,7 @@ router.post("/signup", async (req, res) => {
     };
     const newUser = new userModel(newuserObj);
     await newUser.save();
-    res.status(200).json({ msg: "User Created" });
+    res.status(200).json({ msg: "User Created", data: newuserObj });
   } catch (error) {
     res.status(500).json({ msg: "Not Found", error: error });
   }
