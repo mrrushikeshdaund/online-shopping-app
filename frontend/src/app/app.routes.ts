@@ -26,4 +26,12 @@ export const routes: Routes = [
       );
     },
   },
+  {
+    path: 'admin',
+    loadComponent: () => {
+      return import('./pages/admin/admin.component').then(
+        (m) => m.AdminComponent
+      );
+    },
+  },
 ];
