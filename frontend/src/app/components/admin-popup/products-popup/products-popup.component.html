@@ -1,0 +1,116 @@
+<form class="grid grid-cols-2 gap-4 p-4 bg-white rounded-xl">
+  <!-- Name -->
+  <mat-form-field appearance="outline">
+    <mat-label>Product Name</mat-label>
+    <input
+      matInput
+      placeholder="Enter name"
+      name="name"
+      [(ngModel)]="product.name"
+      required
+    />
+  </mat-form-field>
+
+  <!-- Category -->
+  <mat-form-field appearance="outline">
+    <mat-label>Category</mat-label>
+    <input
+      matInput
+      placeholder="Enter category"
+      name="category"
+      [(ngModel)]="product.category"
+      required
+    />
+  </mat-form-field>
+
+  <!-- Sex -->
+  <mat-form-field appearance="outline">
+    <mat-label>Sex</mat-label>
+    <mat-select [(ngModel)]="product.sex" name="sex" required>
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+      <mat-option value="Unisex">Unisex</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Size -->
+  <mat-form-field appearance="outline">
+    <mat-label>Available Sizes</mat-label>
+    <mat-select multiple [(ngModel)]="product.size" name="size">
+      @for (sz of ['S', 'M', 'L', 'XL', 'XXL']; track $index) {
+      <mat-option [value]="sz">
+        {{ sz }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Color -->
+  <mat-form-field appearance="outline">
+    <mat-label>Color</mat-label>
+    <input
+      matInput
+      placeholder="Enter color"
+      name="color"
+      [(ngModel)]="product.color"
+    />
+  </mat-form-field>
+
+  <!-- Brand -->
+  <mat-form-field appearance="outline">
+    <mat-label>Brand</mat-label>
+    <input
+      matInput
+      placeholder="Enter brand"
+      name="brand"
+      [(ngModel)]="product.brand"
+    />
+  </mat-form-field>
+
+  <!-- Price -->
+  <mat-form-field appearance="outline">
+    <mat-label>Price</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Enter price"
+      name="price"
+      [(ngModel)]="product.price"
+    />
+  </mat-form-field>
+
+  <!-- Offer Price -->
+  <mat-form-field appearance="outline">
+    <mat-label>Offer Price</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Enter offer price"
+      name="offerPrice"
+      [(ngModel)]="product.offerPrice"
+    />
+  </mat-form-field>
+
+  <!-- Stock -->
+  <mat-form-field appearance="outline">
+    <mat-label>Stock</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Enter stock count"
+      name="stock"
+      [(ngModel)]="product.stock"
+    />
+  </mat-form-field>
+
+  <!-- Image URL (only one for simplicity, can be dynamic) -->
+  <mat-form-field appearance="outline" class="col-span-2">
+    <mat-label>Image URL</mat-label>
+    <input
+      matInput
+      placeholder="Enter image URL"
+      name="imageUrl"
+      [(ngModel)]="product.imageUrl[0]"
+    />
+  </mat-form-field>
+</form>

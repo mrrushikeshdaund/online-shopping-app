@@ -21,3 +21,8 @@ export type Product = {
   createdAt?: Date;
   updatedAt?: Date;
 };
+
+export interface ProductResponse {
+  msg: string;
+  data: Product[];
+}

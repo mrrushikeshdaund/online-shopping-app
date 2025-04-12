@@ -1,0 +1,50 @@
+<!-- Action Buttons -->
+<div
+  class="flex flex-wrap items-center gap-4 p-4 bg-white rounded-xl shadow-md"
+>
+  <!-- Create Product -->
+  <button
+    class="bg-green-500 hover:bg-green-600 cursor-pointer text-white font-semibold py-2 px-4 rounded flex items-center gap-2"
+    (click)="openCreateProductDialog()"
+  >
+    <mat-icon>add</mat-icon>
+    Create Product Record
+  </button>
+
+  <!-- Bulk Delete -->
+  <button
+    class="bg-red-500 hover:bg-red-600 text-white cursor-pointer font-semibold py-2 px-4 rounded flex items-center gap-2"
+  >
+    <mat-icon>delete_sweep</mat-icon>
+    Bulk Delete
+  </button>
+
+  <!-- QR Code Scanner -->
+  <button
+    class="bg-indigo-500 hover:bg-indigo-600 text-white cursor-pointer font-semibold py-2 px-4 rounded flex items-center gap-2"
+  >
+    <mat-icon>qr_code_scanner</mat-icon>
+    Scan QR Code
+  </button>
+
+  <!-- Barcode Scanner -->
+  <button
+    class="bg-blue-500 hover:bg-blue-600 text-white cursor-pointer font-semibold py-2 px-4 rounded flex items-center gap-2"
+  >
+    <mat-icon>barcode_reader</mat-icon>
+    Scan Barcode
+  </button>
+</div>
+
+<!-- Product Grid -->
+<div class="w-full h-[500px] p-4 bg-white rounded-xl shadow-md mt-4">
+  <ag-grid-angular
+    class="ag-theme-material w-full h-full"
+    [rowData]="productsRowData()"
+    [columnDefs]="productsColDefs"
+    [defaultColDef]="defaultColDef"
+    rowSelection="multiple"
+    [suppressRowClickSelection]="true"
+  >
+  </ag-grid-angular>
+</div>
