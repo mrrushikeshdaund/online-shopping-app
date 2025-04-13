@@ -32,33 +32,28 @@ A full-featured e-commerce web application built using the **MEAN Stack** (Mongo
 
 online-shopping-app/
 │
-├── frontend/ # Angular Frontend
+├── backend/ # Node.js + Express + MongoDB (API & Server logic)
+│ ├── controllers/ # Route controller functions
+│ ├── models/ # Mongoose schema models
+│ ├── routes/ # API route definitions
+│ ├── middleware/ # Custom middlewares (e.g., auth, error handling)
+│ ├── config/ # Configuration files (DB, env, etc.)
+│ └── server.js # Entry point of backend app
+│
+├── frontend/ # Angular Application
 │ ├── src/
 │ │ ├── app/
-│ │ │ ├── components/ # Reusable UI components
-│ │ │ ├── pages/ # App pages (home, cart, login, etc.)
-│ │ │ ├── services/ # Angular services (API calls)
-│ │ │ ├── guards/ # Route guards (e.g., auth guard)
-│ │ │ └── app.module.ts # Main app module
-│ │ └── index.html
-│ └── angular.json # Angular CLI config
+│ │ │ ├── components/ # Reusable components (navbar, cards, etc.)
+│ │ │ ├── pages/ # Main pages (home, product-list, cart, etc.)
+│ │ │ ├── services/ # Services for API interaction
+│ │ │ ├── models/ # TypeScript interfaces for data types
+│ │ │ └── app.module.ts # Main Angular module
+│ │ ├── assets/ # Static assets (images, icons, etc.)
+│ │ └── environments/ # Environment files for dev/prod
 │
-├── backend/ # Node.js + Express Backend
-│ ├── models/ # Mongoose models (User, Product, Order)
-│ │ ├── user.model.js
-│ │ ├── product.model.js
-│ │ └── order.model.js
-│ ├── routes/ # API route handlers
-│ │ ├── auth.routes.js
-│ │ ├── product.routes.js
-│ │ └── order.routes.js
-│ ├── controllers/ # Logic for handling requests
-│ ├── middleware/ # Auth & error handling middleware
-│ ├── config/ # DB connection and environment config
-│ ├── app.js # Express app setup
-│ └── server.js # Server entry point
+├── shared/ # (Optional) Shared utils or constants across frontend/backend
 │
-├── .env # Environment variables
-├── README.md # Project documentation
-├── package.json # Backend dependencies
-└── package-lock.json
+├── .gitignore
+├── README.md
+├── package.json # Project metadata and scripts
+└── angular.json # Angular CLI configuration
