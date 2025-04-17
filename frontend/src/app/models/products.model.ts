@@ -6,6 +6,7 @@ export type ProductReview = {
 };
 
 export type Product = {
+  _id?: string; // ObjectId as string
   name: string;
   category: string;
   sex: 'Male' | 'Female' | 'Unisex';

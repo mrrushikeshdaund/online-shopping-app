@@ -1,5 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
+var serverless = require("serverless-http");
 var cors = require("cors");
 require("dotenv").config();
 
@@ -26,3 +27,5 @@ app.get("/api", (req, res) => {
 app.listen(process.env.PORT, () =>
   console.log("The Server Runing on port number", process.env.PORT)
 );
+
+module.exports = serverless(app);

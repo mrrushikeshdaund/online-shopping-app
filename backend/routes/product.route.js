@@ -74,7 +74,6 @@ router.post("/add", async (req, res) => {
 router.put("/update/:productId", async (req, res) => {
   try {
     const { productId } = req.params;
-    const updatedProductObj = req.body;
     const updateData = req.body;
 
     // Optional: Validate required fields here if needed

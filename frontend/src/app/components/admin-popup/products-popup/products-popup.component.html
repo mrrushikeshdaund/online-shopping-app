@@ -1,116 +1,149 @@
-<form class="grid grid-cols-2 gap-4 p-4 bg-white rounded-xl">
-  <!-- Name -->
-  <mat-form-field appearance="outline">
-    <mat-label>Product Name</mat-label>
-    <input
-      matInput
-      placeholder="Enter name"
-      name="name"
-      [(ngModel)]="product.name"
-      required
-    />
-  </mat-form-field>
+@if (updatePopup()) {
+<h3 mat-dialog-title class="text-xl font-semibold">Update Product</h3>
+} @else {
 
-  <!-- Category -->
-  <mat-form-field appearance="outline">
-    <mat-label>Category</mat-label>
-    <input
-      matInput
-      placeholder="Enter category"
-      name="category"
-      [(ngModel)]="product.category"
-      required
-    />
-  </mat-form-field>
+<h3 mat-dialog-title class="text-xl font-semibold">Add Product</h3>
+}
 
-  <!-- Sex -->
-  <mat-form-field appearance="outline">
-    <mat-label>Sex</mat-label>
-    <mat-select [(ngModel)]="product.sex" name="sex" required>
-      <mat-option value="Male">Male</mat-option>
-      <mat-option value="Female">Female</mat-option>
-      <mat-option value="Unisex">Unisex</mat-option>
-    </mat-select>
-  </mat-form-field>
+<mat-dialog-content>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+    <!-- Name -->
+    <mat-form-field appearance="fill" class="col-span-2 w-full">
+      <mat-label>Product Name</mat-label>
+      <input matInput [(ngModel)]="product.name" name="name" required />
+    </mat-form-field>
 
-  <!-- Size -->
-  <mat-form-field appearance="outline">
-    <mat-label>Available Sizes</mat-label>
-    <mat-select multiple [(ngModel)]="product.size" name="size">
-      @for (sz of ['S', 'M', 'L', 'XL', 'XXL']; track $index) {
-      <mat-option [value]="sz">
-        {{ sz }}
-      </mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
+    <!-- Category -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Category</mat-label>
+      <input
+        matInput
+        placeholder="Enter category"
+        [(ngModel)]="product.category"
+        name="category"
+        required
+      />
+    </mat-form-field>
 
-  <!-- Color -->
-  <mat-form-field appearance="outline">
-    <mat-label>Color</mat-label>
-    <input
-      matInput
-      placeholder="Enter color"
-      name="color"
-      [(ngModel)]="product.color"
-    />
-  </mat-form-field>
+    <!-- Sex -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Sex</mat-label>
+      <mat-select [(ngModel)]="product.sex" name="sex" required>
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+        <mat-option value="Unisex">Unisex</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <!-- Brand -->
-  <mat-form-field appearance="outline">
-    <mat-label>Brand</mat-label>
-    <input
-      matInput
-      placeholder="Enter brand"
-      name="brand"
-      [(ngModel)]="product.brand"
-    />
-  </mat-form-field>
+    <!-- Size -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Size</mat-label>
+      <mat-select multiple [(ngModel)]="product.size" name="size" required>
+        @for (sz of sizes; track $index) {
+        <mat-option [value]="sz">{{ sz }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
 
-  <!-- Price -->
-  <mat-form-field appearance="outline">
-    <mat-label>Price</mat-label>
-    <input
-      matInput
-      type="number"
-      placeholder="Enter price"
-      name="price"
-      [(ngModel)]="product.price"
-    />
-  </mat-form-field>
+    <!-- Color -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Color</mat-label>
+      <input
+        matInput
+        placeholder="Enter color"
+        [(ngModel)]="product.color"
+        name="color"
+      />
+    </mat-form-field>
 
-  <!-- Offer Price -->
-  <mat-form-field appearance="outline">
-    <mat-label>Offer Price</mat-label>
-    <input
-      matInput
-      type="number"
-      placeholder="Enter offer price"
-      name="offerPrice"
-      [(ngModel)]="product.offerPrice"
-    />
-  </mat-form-field>
+    <!-- Brand -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Brand</mat-label>
+      <input
+        matInput
+        placeholder="Enter brand"
+        [(ngModel)]="product.brand"
+        name="brand"
+      />
+    </mat-form-field>
 
-  <!-- Stock -->
-  <mat-form-field appearance="outline">
-    <mat-label>Stock</mat-label>
-    <input
-      matInput
-      type="number"
-      placeholder="Enter stock count"
-      name="stock"
-      [(ngModel)]="product.stock"
-    />
-  </mat-form-field>
+    <!-- Price -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="Enter price"
+        [(ngModel)]="product.price"
+        name="price"
+      />
+    </mat-form-field>
 
-  <!-- Image URL (only one for simplicity, can be dynamic) -->
-  <mat-form-field appearance="outline" class="col-span-2">
-    <mat-label>Image URL</mat-label>
-    <input
-      matInput
-      placeholder="Enter image URL"
-      name="imageUrl"
-      [(ngModel)]="product.imageUrl[0]"
-    />
-  </mat-form-field>
-</form>
+    <!-- Offer Price -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Offer Price</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="Enter offer price"
+        [(ngModel)]="product.offerPrice"
+        name="offerPrice"
+      />
+    </mat-form-field>
+
+    <!-- Stock -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Stock</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="Enter stock"
+        [(ngModel)]="product.stock"
+        name="stock"
+      />
+    </mat-form-field>
+
+    <!-- Image URL (Full Width) -->
+    <mat-form-field appearance="fill" class="col-span-2 w-full">
+      <mat-label>Image URL</mat-label>
+      <input
+        matInput
+        placeholder="Enter image URL"
+        [(ngModel)]="product.imageUrl[0]"
+        name="imageUrl"
+      />
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<div class="flex justify-end gap-2 p-4">
+  <button
+    class="border border-red-500 text-red-500 px-4 py-2 rounded hover:bg-red-50 transition"
+    (click)="onCancel()"
+  >
+    Cancel
+  </button>
+  @if (updatePopup()) {
+  <button
+    class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+    [mat-dialog-close]="product"
+    (click)="onUpdateProduct()"
+  >
+    Update Product
+  </button>
+  <button
+    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+    [mat-dialog-close]="product"
+    (click)="onDeleteProduct()"
+  >
+    Delete Product
+  </button>
+  }@else {
+  <button
+    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+    [mat-dialog-close]="product"
+    (click)="onAddProduct()"
+  >
+    Add Product
+  </button>
+  }
+</div>

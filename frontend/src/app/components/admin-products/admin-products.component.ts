@@ -84,6 +84,10 @@ export class AdminProductsComponent {
   }
 
   ngOnInit(): void {
+    this.getAllProductsRecords();
+  }
+
+  getAllProductsRecords() {
     this.productsService
       .getAllProducts()
       .pipe(takeUntil(this.destroy$))
@@ -96,8 +100,24 @@ export class AdminProductsComponent {
   openCreateProductDialog() {
     console.log('Open create product dialog');
     this.dialog.open(ProductsPopupComponent, {
-      width: '90%',
-      height: '80%',
+      width: 'auto',
+      height: 'auto',
+    });
+    this.dialog.afterAllClosed.subscribe(() => {
+      this.getAllProductsRecords();
+    });
+  }
+
+  onRowClicked(event: any) {
+    console.log('Row clicked', event);
+    const selectedProduct = event.data;
+    this.dialog.open(ProductsPopupComponent, {
+      width: 'auto',
+      height: 'auto',
+      data: selectedProduct,
+    });
+    this.dialog.afterAllClosed.subscribe(() => {
+      this.getAllProductsRecords();
     });
   }
 
