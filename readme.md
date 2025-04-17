@@ -31,29 +31,31 @@ A full-featured e-commerce web application built using the **MEAN Stack** (Mongo
 ## 📁 Project Structure
 
 online-shopping-app/
+├── backend/                  # Node.js + Express Backend API
+│   ├── config/               # Database configuration and environment setup
+│   ├── controllers/          # Route logic and business logic
+│   ├── middleware/           # Custom middleware (e.g., auth, error handling)
+│   ├── models/               # Mongoose data models
+│   ├── routes/               # API route definitions
+│   ├── utils/                # Utility functions (e.g., token generation)
+│   ├── server.js             # Entry point for backend server
+│   └── .env                  # Environment variables
 │
-├── backend/ # Node.js + Express + MongoDB (API & Server logic)
-│ ├── controllers/ # Route controller functions
-│ ├── models/ # Mongoose schema models
-│ ├── routes/ # API route definitions
-│ ├── middleware/ # Custom middlewares (e.g., auth, error handling)
-│ ├── config/ # Configuration files (DB, env, etc.)
-│ └── server.js # Entry point of backend app
+├── frontend/                 # Angular Frontend App
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/   # Reusable UI components
+│   │   │   ├── pages/        # Page-level components (e.g., Home, Cart)
+│   │   │   ├── services/     # HTTP services and API calls
+│   │   │   ├── models/       # TypeScript interfaces and types
+│   │   │   ├── guards/       # Route guards (e.g., AuthGuard)
+│   │   │   └── app.module.ts # Angular module configuration
+│   │   ├── assets/           # Static assets like images and styles
+│   │   ├── environments/     # Environment-specific configs
+│   │   └── index.html        # Main HTML file
+│   └── angular.json          # Angular project configuration
 │
-├── frontend/ # Angular Application
-│ ├── src/
-│ │ ├── app/
-│ │ │ ├── components/ # Reusable components (navbar, cards, etc.)
-│ │ │ ├── pages/ # Main pages (home, product-list, cart, etc.)
-│ │ │ ├── services/ # Services for API interaction
-│ │ │ ├── models/ # TypeScript interfaces for data types
-│ │ │ └── app.module.ts # Main Angular module
-│ │ ├── assets/ # Static assets (images, icons, etc.)
-│ │ └── environments/ # Environment files for dev/prod
-│
-├── shared/ # (Optional) Shared utils or constants across frontend/backend
-│
-├── .gitignore
-├── README.md
-├── package.json # Project metadata and scripts
-└── angular.json # Angular CLI configuration
+├── README.md                 # Project overview and setup guide
+├── package.json              # Project metadata and dependencies (if shared)
+└── .gitignore                # Ignored files and folders
+
