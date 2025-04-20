@@ -1,0 +1,113 @@
+@if (toggle()) {
+  <div class="signup-container">
+    <div mat-dialog-title class="text-center title-txt">
+      <p>Sign Up</p>
+    </div>
+    <mat-form-field appearance="outline" class="full-width">
+      <input
+        matInput
+        type="text"
+        placeholder="Enter your Username"
+        [(ngModel)]="userData().userName"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <input
+        matInput
+        type="email"
+        placeholder="Enter your email"
+        [(ngModel)]="userData().email"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <input
+        matInput
+        type="password"
+        placeholder="Enter your password"
+        [(ngModel)]="passwordCheck().password"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <input
+        matInput
+        type="password"
+        placeholder="Confirm your password"
+        [(ngModel)]="passwordCheck().retypePassword"
+        required
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="full-width"
+      (click)="handleSignUpAction()"
+    >
+      Sign Up
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      class="full-width"
+      (click)="onCancel()"
+    >
+      Cancel
+    </button>
+    <div>
+      <button mat-button color="accent" (click)="openLogin()">
+        Already have an account? Log In
+      </button>
+    </div>
+  </div>
+} @else {
+  <div class="signup-container">
+    <div mat-dialog-title class="text-center title-txt">Login</div>
+    <mat-form-field appearance="outline" class="full-width">
+      <input
+        matInput
+        type="text"
+        placeholder="Enter your  Username"
+        required
+        [(ngModel)]="this.userData().userName"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <input
+        matInput
+        type="password"
+        placeholder="Enter your password"
+        required
+        [(ngModel)]="this.userData().password"
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="full-width"
+      (click)="handleLoginAction()"
+    >
+      Login
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      class="full-width"
+      (click)="onCancel()"
+    >
+      Cancel
+    </button>
+    <div>
+      <button mat-button color="accent" (click)="openLogin()">
+        Have not an account? Sign Up
+      </button>
+    </div>
+  </div>
+}

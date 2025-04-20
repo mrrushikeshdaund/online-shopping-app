@@ -16,7 +16,8 @@ export const ENVIROMENTS = {
   },
   USERS: {
     BASE_URL: '/users',
-    ADD: '/add',
+    ADD: '/signup',
+    LOGIN: '/login',
     UPDATE: '/update',
     DELETE: '/delete',
     ALLDATA: '/list',

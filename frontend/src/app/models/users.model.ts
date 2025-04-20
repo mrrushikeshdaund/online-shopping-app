@@ -10,8 +10,13 @@ export type User = {
   userName: string;
   email: string;
   password: string;
-  address: UserAddress[];
+  address?: UserAddress[];
   role?: 'user' | 'admin'; // optional because default is "user"
   createdAt?: Date;
   updatedAt?: Date;
+};
+
+export type UserResponse = {
+  msg: string;
+  data: User;
 };
