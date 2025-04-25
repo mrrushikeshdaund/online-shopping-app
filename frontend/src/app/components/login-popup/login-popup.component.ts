@@ -57,16 +57,20 @@ export class LoginPopupComponent implements OnDestroy {
   }
 
   handleLoginAction() {
-    console.log(this.userData());
-
+    console.log('Login Action');
     this.userAuthService
       .loginUser(this.userData())
       .pipe(takeUntil(this.destory$))
-      .subscribe((res: UserResponse) => {
-        console.log(res.msg);
-        if (res.data) {
-          this.onCancel();
-        }
+      .subscribe({
+        next: (res: UserResponse) => {
+          console.log(res.msg);
+          alert(res.msg);
+          this.dialog.close();
+        },
+        error: (err) => {
+          console.error('Login error:', err);
+          alert(err?.error?.msg || 'An error occurred during login.');
+        },
       });
   }
 
