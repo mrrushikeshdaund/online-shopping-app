@@ -6,86 +6,27 @@
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-center"
   >
     <!-- Card 1 -->
-    <div
-      class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-4 text-center"
-    >
-      <img
-        src="https://example.com/tshirt.jpg"
-        alt="T-shirt"
-        class="mx-auto h-48 object-contain"
-      />
-      <p class="mt-4 font-medium text-gray-800">T-shirt with Tape Details</p>
+    @for (item of productsData(); track $index) {
       <div
-        class="flex items-center justify-center text-yellow-500 mt-1 text-sm"
+        class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-4 text-center"
       >
-        ★ ★ ★ ★ ★ <span class="text-gray-600 ml-1">4.5/5</span>
+        <img
+          src="{{ item.imageUrl[0] }}"
+          alt="{{ item.category }}"
+          class="mx-auto h-48 object-contain"
+        />
+        <p class="mt-4 font-medium text-gray-800">{{ item.name }}</p>
+        <div
+          class="flex items-center justify-center text-yellow-500 mt-1 text-sm"
+        >
+          ★ ★ ★ ★ ★ <span class="text-gray-600 ml-1">4.5/5</span>
+        </div>
+        <p class="mt-2 text-lg font-semibold text-black">
+          {{ `$ ${item.offerPrice}` }}
+        </p>
       </div>
-      <p class="mt-2 text-lg font-semibold text-black">$120</p>
-    </div>
-
-    <!-- Card 2 -->
-    <div
-      class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-4 text-center"
-    >
-      <img
-        src="https://example.com/jeans.jpg"
-        alt="Jeans"
-        class="mx-auto h-48 object-contain"
-      />
-      <p class="mt-4 font-medium text-gray-800">Skinny Fit Jeans</p>
-      <div
-        class="flex items-center justify-center text-yellow-500 mt-1 text-sm"
-      >
-        ★ ★ ★ ★ ★ <span class="text-gray-600 ml-1">3.5/5</span>
-      </div>
-      <div class="flex justify-center items-center space-x-2 mt-2">
-        <p class="text-lg font-semibold text-black">$240</p>
-        <p class="line-through text-gray-400 text-sm">$260</p>
-        <span class="text-red-500 text-sm font-medium">-20%</span>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div
-      class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-4 text-center"
-    >
-      <img
-        src="https://example.com/checkered.jpg"
-        alt="Shirt"
-        class="mx-auto h-48 object-contain"
-      />
-      <p class="mt-4 font-medium text-gray-800">Checkered Shirt</p>
-      <div
-        class="flex items-center justify-center text-yellow-500 mt-1 text-sm"
-      >
-        ★ ★ ★ ★ ★ <span class="text-gray-600 ml-1">4.5/5</span>
-      </div>
-      <p class="mt-2 text-lg font-semibold text-black">$180</p>
-    </div>
-
-    <!-- Card 4 -->
-    <div
-      class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-4 text-center"
-    >
-      <img
-        src="https://example.com/striped.jpg"
-        alt="Striped T-shirt"
-        class="mx-auto h-48 object-contain"
-      />
-      <p class="mt-4 font-medium text-gray-800">Sleeve Striped T-shirt</p>
-      <div
-        class="flex items-center justify-center text-yellow-500 mt-1 text-sm"
-      >
-        ★ ★ ★ ★ ★ <span class="text-gray-600 ml-1">4.5/5</span>
-      </div>
-      <div class="flex justify-center items-center space-x-2 mt-2">
-        <p class="text-lg font-semibold text-black">$130</p>
-        <p class="line-through text-gray-400 text-sm">$160</p>
-        <span class="text-red-500 text-sm font-medium">-30%</span>
-      </div>
-    </div>
+    }
   </div>
-
   <div class="text-center mt-10">
     <button
       class="px-6 py-2 bg-white border border-gray-400 rounded-full hover:bg-gray-100 transition"
