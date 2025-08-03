@@ -13,7 +13,7 @@ export type DeliveryAddress = {
 };
 
 export type Orders = {
-  userId: string; // ObjectId as string
+  userId: string;
   products: OrderProduct[];
   totalAmount: number;
   paymentMethod: 'Card' | 'CashOnDelivery' | 'UPI';
