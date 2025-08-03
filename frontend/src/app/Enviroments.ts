@@ -1,5 +1,5 @@
 export const ENVIROMENTS = {
-  BASE_URL: 'http://localhost:5000',
+  BASE_URL: 'http://localhost:30002',
   PRODUCTS: {
     BASE_URL: '/products',
     ADD: '/add',

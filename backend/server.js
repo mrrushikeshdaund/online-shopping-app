@@ -12,7 +12,7 @@ app.use("/products", require("./routes/product.route"));
 app.use("/orders", require("./routes/order.route"));
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("MongoDB Connected...");
   })
